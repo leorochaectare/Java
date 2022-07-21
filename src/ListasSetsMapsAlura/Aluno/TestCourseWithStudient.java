@@ -25,5 +25,12 @@ public class TestCourseWithStudient {
 		javaColecoes.getAlunos().forEach(a -> {
 			System.out.println(a);
 		});
+		
+		System.out.println(javaColecoes.estaMatriculado(a1)); // true
+		
+		Aluno power_rangers = new Aluno("Power Rangers 1", 34672);
+		System.out.println(javaColecoes.estaMatriculado(power_rangers)); // true
+		
+		System.out.println(a1.hashCode() == power_rangers.hashCode()); // true
 	}
 }
