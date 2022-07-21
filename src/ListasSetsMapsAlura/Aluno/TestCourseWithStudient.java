@@ -1,13 +1,29 @@
 package ListasSetsMapsAlura.Aluno;
 
+import ListasSetsMapsAlura.Objetos.Aula;
+import ListasSetsMapsAlura.Objetos.Curso;
+
 public class TestCourseWithStudient {
 	
-	
-	public static String teste() {
-		return "Hello World";
-	}
-	
 	public static void main(String[] args) {
-		System.out.println(teste());
+		Curso javaColecoes = new Curso("Dominando as colecoes do Java", "Seu Madruga");
+
+		// javaColecoes.getAulas().add(new Aula("Trabalhando com ArrayList", 21));
+		javaColecoes.adiciona(new Aula("Trabalhando com ArrayList", 21));
+		javaColecoes.adiciona(new Aula("Criando uma aula", 20));
+		javaColecoes.adiciona(new Aula("Modelando com colecoes", 22));
+		
+		Aluno a1 = new Aluno("Power Rangers 1", 34672);
+		Aluno a2 = new Aluno("Power Rangers 2", 34571);
+		Aluno a3 = new Aluno("Power Rangers 3", 34521);
+		
+		javaColecoes.matricula(a1);
+		javaColecoes.matricula(a2);
+		javaColecoes.matricula(a3);
+		
+		System.out.println("Todos os alunos matriculados: ");
+		javaColecoes.getAlunos().forEach(a -> {
+			System.out.println(a);
+		});
 	}
 }
