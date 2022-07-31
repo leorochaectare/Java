@@ -1,9 +1,12 @@
 package ListasSetsMapsAlura.Objetos;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import ListasSetsMapsAlura.Aluno.Aluno;
 
@@ -16,6 +19,7 @@ public class Curso {
 	private List<Aula> aulas = new LinkedList<Aula>();
 	private Set<Aluno> alunos = new HashSet<>(); 
 	private int qtde_aulas = 0;
+	private Map<Integer, Aluno> matriculaParaAluno = new HashMap<>();
 
 	public Curso(String nome, String instrutor) {
 		this.nome = nome;
@@ -62,6 +66,7 @@ public class Curso {
 
 	public void matricula(Aluno aluno) {
 		this.alunos.add(aluno);
+		this.matriculaParaAluno.put(aluno.getNumeroMatricula(), aluno);
 		
 	}
 	
@@ -71,6 +76,13 @@ public class Curso {
 
 	public boolean estaMatriculado(Aluno a1) {
 		return this.alunos.contains(a1); 
+	}
+
+	public Aluno buscaMatriculado(int numero) {
+		if(!matriculaParaAluno.containsKey(numero)) {
+			throw new NoSuchElementException("Numero de matricula nao encontrado!");
+		}
+		return this.matriculaParaAluno.get(numero);	
 	}
 	
 	
