@@ -12,11 +12,50 @@ public class ExercicioOrdenandoStrings {
 		palavras.add("Power Rangers Preto");
 		palavras.add("Power Rangers Rosa");
 		
-		Consumer<String> consumidor = new ImprimeNaLInha();
-		palavras.forEach(consumidor);
+		// Criando uma classe anonima
+//		Consumer<String> consumidor = new Consumer<String>() {
+//
+//			@Override
+//			public void accept(String s) {
+//				System.out.println(s);	
+//			}
+//			
+//		};
 		
-		Comparator<String> comparator = new ComparatorTamanhoLinha();
-		palavras.sort(comparator);
+		
+		//Criando uma classe anonima diretamente pelo foreach 
+//		palavras.forEach(new Consumer<String>() {
+//			@Override
+//			public void accept(String s) {
+//				System.out.println(s);	
+//			}
+//		});
+		
+		// Lambda
+		palavras.forEach((String s) -> {
+			System.out.println(s);
+		});
+		
+		// Fazendo o lambda de uma maneira bem abreviada
+		palavras.forEach(s -> System.out.println(s));
+		
+		// Classe anonima
+//		palavras.sort(new Comparator<String>() {
+//			@Override
+//			public int compare(String string_1, String string_2) {
+//				if(string_1.length() < string_2.length())
+//					return -1;
+//				else if(string_1.length() > string_2.length())
+//					return 1;
+//					
+//				return 0;
+//			}
+//		});
+		
+		// lambda
+		palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
+		
+		
 		System.out.println(palavras);
 	}
 }
