@@ -54,9 +54,14 @@ public class ExercicioOrdenandoStrings {
 		
 		// lambda
 		palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
-		
-		
 		System.out.println(palavras);
+		
+		palavras.sort(Comparator.comparing(s -> s.length()));
+		System.out.println(palavras);
+		
+		palavras.sort(Comparator.comparing(String::length));
+		System.out.println(palavras);
+		
 	}
 }
 
