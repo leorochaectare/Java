@@ -106,7 +106,9 @@ public class ExemploCurso {
 		 System.out.println("----------------------------------------------------------");
 		 System.out.println("toMap() - retornar a referência de duas função (o nome do curso e a quantidade de alunos) ");
 		 
-		 cursos.stream().filter(c -> c.getAlunos() >= 100).collect(Collectors.toMap(c -> c.getNome(), c -> c.getAlunos())).forEach((nome, alunos) -> System.out.println(nome + " tem " + alunos + " alunos."));;
+		 cursos.stream().filter(c -> c.getAlunos() >= 100)
+		 	.collect(Collectors.toMap(c -> c.getNome(), c -> c.getAlunos()))
+		 	.forEach((nome, alunos) -> System.out.println(nome + " tem " + alunos + " alunos."));;
 		 
 		 System.out.println("----------------------------------------------------------");
 		 System.out.println("Retornando o nome do curso e a quantidade de alunos pelo for ");
