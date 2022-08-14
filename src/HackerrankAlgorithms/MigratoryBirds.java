@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 public class MigratoryBirds {
 	
+	// Não está funcionando corretamente
+	// Refazer ele usando as novas funcionalidades da Api Steam() aprendidas recentemente
+	
 	public static int migratoryBirds(List<Integer> arr) {
 		List<Integer> nums =  new ArrayList<>();
 		List<Integer> numsArray = new ArrayList<>();
@@ -37,7 +40,8 @@ public class MigratoryBirds {
 	}
 	
 	public static void main(String[] args) {
-		List<Integer> arr = Arrays.asList(1,4,4,4,5,3);
+		//List<Integer> arr = Arrays.asList(1,4,4,4,5,3);
+		List<Integer> arr = Arrays.asList(1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4);
 		
 		System.out.println(migratoryBirds(arr));
 	}
