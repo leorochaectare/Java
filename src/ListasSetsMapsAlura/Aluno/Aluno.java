@@ -1,6 +1,5 @@
 package ListasSetsMapsAlura.Aluno;
 
-import java.util.Objects;
 
 public class Aluno {
 	private String nome;

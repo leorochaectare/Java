@@ -2,10 +2,7 @@ package ListasSetsMapsAlura.Collection;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+
 
 public class ExempleCollection {
 	public static void main(String[] args) {

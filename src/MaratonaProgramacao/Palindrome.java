@@ -10,7 +10,18 @@ public class Palindrome {
         for(int i = 1; i <= casos; i++) {
             System.out.println(i + " ");
             String palavra = scanner.nextLine();
+            if(ehPalindromo(palavra)){
+                System.out.println("\"YES\"");
+            } else {
+                System.out.println("\"NO\"");
+            }
+             
         }
 
+    }
+
+    private static boolean ehPalindromo(String palavra){
+        String invertido = new StringBuilder(palavra).reverse().toString();
+        return palavra.equals(invertido);
     }
 }

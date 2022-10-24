@@ -1,7 +1,6 @@
 package Array;
 
 import java.util.HashSet;
-import java.util.List;
 
 public class Set {
 	public static void main(String[] args) {
