@@ -63,26 +63,9 @@ public class Funcionario {
         this.dataUltimoReajuste = dataUltimoReajuste;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-        result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
-        result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
-        result = prime * result + ((salario == null) ? 0 : salario.hashCode());
-        result = prime * result + ((dataUltimoReajuste == null) ? 0 : dataUltimoReajuste.hashCode());
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Funcionario [nome=" + nome + ", cpf=" + cpf + ", cargo=" + cargo + ", salario=" + salario
-                + ", dataUltimoReajuste=" + dataUltimoReajuste + "]";
-    }
-
+	public void promover(Cargo novoCargo) {
+		this.cargo = novoCargo;
+		
+	}
     
-    
-    
-
 }
