@@ -10,6 +10,11 @@ public class Venda {
 	DestinatarioVenda Destinatario;
 	PagamentoVenda Pagamento;
 	
+	public Venda() {
+		this.Destinatario = new DestinatarioVenda();
+		this.Pagamento = new PagamentoVenda();
+	}
+	
 	public int getIdvenda() {
 		return idvenda;
 	}
