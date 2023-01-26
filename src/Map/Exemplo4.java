@@ -18,5 +18,11 @@ public class Exemplo4 {
 		}
 		
 		System.out.println(sum); // 2610.0
+		
+		for(String item : salarys.keySet()) {
+			System.out.println(item);
+		}
+		
+		
 	}
 }
