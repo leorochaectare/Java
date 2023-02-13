@@ -13,5 +13,9 @@ public class ArrayAsList {
 		}
 		
 		System.out.println(sum); //15
+		
+		List<String> campos = Arrays.asList("teste");
+		System.out.println(campos);
+		
 	}
 }

@@ -10,9 +10,10 @@ public class AddArray {
 		
 		System.out.println("Total de notas: " + notas.length);
 		
-		
-		
-
+		String[] names = new String[]{"John", "Jane", "Jim"};
+		for(int i = 0; i < names.length; i++) {
+			System.out.println(names[i]);
+		}
 		
 	} 
 	
