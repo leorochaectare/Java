@@ -1,9 +1,11 @@
 package Array;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+
 public class Teste {
 	public static void main(String[] args) {
-		int a = 10;
-		
-		System.out.println(a);
+		LinkedList<String> list = new LinkedList<>(Arrays.asList("Léo", "Lindo"));
+		System.out.println(list);
 	}
 }
