@@ -2,8 +2,11 @@ package Others.java;
 
 public class Ternario {
 	public static void main(String[] args) {
-		int time = 20;
-		String result = time < 18 ? "Good day." : "Good evening.";
-		System.out.println(result);
+		String matricula = null;
+		
+		System.out.println(matricula == null ? "vazio" : matricula);
+		
+		double valor = 10.45;
+		System.out.println(String.valueOf(valor).replaceAll("0+$", ""));
 	}
 }
