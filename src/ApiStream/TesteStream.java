@@ -8,6 +8,5 @@ public class TesteStream {
 		List<Integer> list = Arrays.asList(0,2,4,6,8,10,12);
 		
 		System.out.println(list.stream().count()); // 7
-		
 	}
 }
