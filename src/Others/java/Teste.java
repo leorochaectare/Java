@@ -1,18 +1,16 @@
 package Others.java;
 
-import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.Month;
 
 public class Teste {
+
 	public static void main(String[] args) {
-		double valorCotacao = 2222251.37;
-		double valorArroba = 243.90;
-		double sum = valorCotacao / valorArroba;
+
+		String cpf= "123.123.777-56";
 		
-		DecimalFormat df = new DecimalFormat("###,###,##0.00");
-		DecimalFormat dfValorTotal = new DecimalFormat("########0.00");
-		
-		System.out.println(df.format(sum));
-		System.out.println(dfValorTotal.format(sum));
-		
+		System.out.println(cpf.replaceAll("[^0-9]", ""));
+
 	}
+
 }
