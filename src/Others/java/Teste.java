@@ -1,15 +1,20 @@
 package Others.java;
 
-import java.time.LocalDate;
-import java.time.Month;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Teste {
 
 	public static void main(String[] args) {
-
-		String cpf= "123.123.777-56";
 		
-		System.out.println(cpf.replaceAll("[^0-9]", ""));
+		var valueTotal = new BigDecimal("5000.00");
+		var installments = 6;
+		
+		var result = valueTotal.divide(BigDecimal.valueOf(installments), 2, RoundingMode.HALF_UP);
+		
+		System.out.println(result.multiply(BigDecimal.valueOf(installments)));
+		
+		
 
 	}
 
