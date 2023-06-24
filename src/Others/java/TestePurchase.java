@@ -21,7 +21,7 @@ public class TestePurchase {
 		List<PurchaseItem> listOfPurchaseItems = new LinkedList<>();
 		
 		int countInstallmetns =  0;
-		var result = purchase.getTotalValue().divide(BigDecimal.valueOf(purchase.getTotalInstallments()));
+		
 		while(countInstallmetns != purchase.getTotalInstallments()) {
 			
 			BigDecimal valueInstallments = purchase.getTotalInstallments() == 1 ? new BigDecimal(purchase.getTotalValue().toString()) 
