@@ -7,13 +7,10 @@ public class Teste {
 
 	public static void main(String[] args) {
 		
-		var valueTotal = new BigDecimal("5000.00");
-		var installments = 6;
+		String valor = "123.123.777-56";
 		
-		var result = valueTotal.divide(BigDecimal.valueOf(installments), 2, RoundingMode.HALF_UP);
-		
-		System.out.println(result.multiply(BigDecimal.valueOf(installments)));
-		
+		 valor = valor.replaceAll("[^0-9]", "");
+		 System.out.println(valor.length());
 		
 
 	}
