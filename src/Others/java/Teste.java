@@ -6,12 +6,28 @@ import java.math.RoundingMode;
 public class Teste {
 
 	public static void main(String[] args) {
+
+		String cnhFrente = "";
+		String cnhVerso = null;
+		String identidadeFrente = "";
+		String identidadeVerso = null;
+		String erros = "";
+
+		if ((cnhFrente == null && cnhVerso == null) && (identidadeFrente == null && identidadeVerso == null)) {
+			erros = "CNH frente e verso ou Identidade frente e verso são obrigatórios";
+		}
+		if ((cnhFrente == null || cnhVerso == null) && (identidadeFrente == null && identidadeVerso == null)) {
+			erros = "CNH frente e verso são obrigatórios";
+		}
+		if ((cnhFrente == null && cnhVerso == null) && (identidadeFrente == null || identidadeVerso == null)) {
+			erros = "Identidade frente e verso são obrigatórios";
+		}
+		if ((cnhFrente == null || cnhVerso == null) && (identidadeFrente == null || identidadeVerso == null)) {
+			erros = "CNH frente e verso ou Identidade frente e verso são obrigatórios";
+		}
 		
-		String valor = "123.123.777-56";
-		
-		 valor = valor.replaceAll("[^0-9]", "");
-		 System.out.println(valor.length());
-		
+
+		System.out.println(erros);
 
 	}
 
