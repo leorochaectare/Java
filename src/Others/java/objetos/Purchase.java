@@ -13,6 +13,10 @@ public class Purchase {
     private Integer totalInstallments;
     private BigDecimal interest;
     
+    public Purchase() {
+    	
+    }
+    
 	public Purchase(Long purchaseId, String description, BigDecimal totalValue, LocalDate purchaseDate,
 			Integer totalInstallments, BigDecimal interest) {
 		this.purchaseId = purchaseId;
