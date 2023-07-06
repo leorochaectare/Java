@@ -1,37 +1,36 @@
 package Others.java;
 
-import java.util.Vector;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Teste {
+	
+	public static int findDigits(int number) {
+		int countNumbers = 0;
+		String transformString = String.valueOf(number);
+		String item = "";
+		List<Integer> listIntegers = new ArrayList<>(); 
+		for(int i = 0; i < transformString.length(); i++) {
+			item = String.valueOf(transformString.charAt(i));
+			listIntegers.add(Integer.parseInt(item));
+		}
+		
+		for(int i = 0; i < listIntegers.size(); i++) {
+			
+			if(listIntegers.get(i) != 0 && number % listIntegers.get(i) == 0) {
+				countNumbers++;
+			}
+		}
+		
+		
+		return countNumbers;
+	}
 
+	
 	public static void main(String[] args) {
+
+		System.out.println(findDigits(1012));
 		
-		Vector<Integer> nums = new Vector<>();
-		nums.add(50);
-		nums.add(40);
-		nums.add(10);
-		nums.add(20);
-		nums.add(30);
-		nums.add(50);
-		
-		Vector<String> words = new Vector<>();
-		words.add("Seu Madruga");
-		words.add("Chaves");
-		words.add("Quico");
-		
-		System.out.println(nums.stream().map(values -> values).toList());
-		System.out.println(nums.stream().filter(values -> values >= 30).toList());
-		System.out.println(nums.stream().filter(values -> values == 30).findFirst().get());
-		System.out.println(nums.stream().count());
-		System.out.println(nums.stream().reduce(0, (accumulator, value) -> accumulator + value));
-		System.out.println(nums.stream().distinct().toList());
-		System.out.println(words.stream().collect(Collectors.joining(", ")));
-		System.out.println(nums.stream().limit(2).toList());
-		System.out.println(nums.stream().max(Integer::compareTo).get());
-		System.out.println(nums.stream().min(Integer::compareTo).get());
-		System.out.println(nums.stream().sorted().toList());
-		        		
 		
 	}
 
