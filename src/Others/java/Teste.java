@@ -1,37 +1,35 @@
 package Others.java;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
+import Others.java.objetos.Depoimento;
 
 public class Teste {
 	
-	public static int findDigits(int number) {
-		int countNumbers = 0;
-		String transformString = String.valueOf(number);
-		String item = "";
-		List<Integer> listIntegers = new ArrayList<>(); 
-		for(int i = 0; i < transformString.length(); i++) {
-			item = String.valueOf(transformString.charAt(i));
-			listIntegers.add(Integer.parseInt(item));
+	public static Set<Depoimento> retornaDepoimentosAleatorios() {
+		List<Depoimento> listaDepoimentos = new LinkedList<>();
+		
+		for(int index = 0; index < 20; index++) {
+			listaDepoimentos.add(new Depoimento(Long.valueOf(index), "Foto"+index, "Depoimento"+index, "Nome"+index));
 		}
 		
-		for(int i = 0; i < listIntegers.size(); i++) {
-			
-			if(listIntegers.get(i) != 0 && number % listIntegers.get(i) == 0) {
-				countNumbers++;
-			}
+		Set<Depoimento> depoimentosSorteados = new HashSet<>();
+		
+		final int maximoNumerosParaSeremSorteados = 3;
+		while(depoimentosSorteados.size() < maximoNumerosParaSeremSorteados) {
+			int numberRandom = new Random().nextInt(listaDepoimentos.size());
+			depoimentosSorteados.add(listaDepoimentos.get(numberRandom));
 		}
 		
-		
-		return countNumbers;
+		return depoimentosSorteados;
 	}
-
 	
 	public static void main(String[] args) {
-
-		System.out.println(findDigits(1012));
-		
-		
+		System.out.println(retornaDepoimentosAleatorios());		
 	}
 
 }
