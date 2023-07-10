@@ -8,7 +8,7 @@ import java.util.Set;
 
 import Others.java.objetos.Depoimento;
 
-public class Teste {
+public class RandomExample {
 	
 	public static Set<Depoimento> retornaDepoimentosAleatorios() {
 		List<Depoimento> listaDepoimentos = new LinkedList<>();
@@ -29,8 +29,6 @@ public class Teste {
 	}
 	
 	public static void main(String[] args) {
-		
-		System.out.println(retornaDepoimentosAleatorios());		
+		System.out.println(retornaDepoimentosAleatorios());
 	}
-
 }
