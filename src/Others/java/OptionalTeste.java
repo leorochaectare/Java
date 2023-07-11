@@ -30,9 +30,9 @@ public class OptionalTeste {
 		System.out.println(buscar);
 		
 		if(buscar.isEmpty()) {
-			System.out.println("Essa porra está vazia");
+			System.out.println("vazio");
 		} else {
-			System.out.println("Essa porra não está vazia");
+			System.out.println("não vazio");
 		}
 	}
 }
