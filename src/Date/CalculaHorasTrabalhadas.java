@@ -9,7 +9,7 @@ public class CalculaHorasTrabalhadas {
 		final int minutosHora = 60;
 		
 		final int horaEntrada = 8;
-		final int minutoEntrada = 00;
+		final int minutoEntrada = 30;
 		
 		final int horaInicioAlmoco = 13;
 		final int minutoInicioAlmoco = 00;
@@ -18,7 +18,7 @@ public class CalculaHorasTrabalhadas {
 		final int minutoFimAlmoco = 30;
 		
 		final int horaSaida = 17;
-		final int minutoSaida = 18;
+		final int minutoSaida = 48;
 		
 		LocalTime inicioAlmoco = LocalTime.of(horaInicioAlmoco, minutoInicioAlmoco);
 		LocalTime fimAlmoco = LocalTime.of(horaFimAlmoco, minutoFimAlmoco);
