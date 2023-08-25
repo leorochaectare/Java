@@ -1,48 +1,70 @@
 package Others.java;
 
 
-import java.util.LinkedList;
-import Others.java.objetos.Processos;
+import Others.java.objetos.ProcessosCheck;
 
 public class Teste {
-	
-	static LinkedList<Processos> listaProcessos = new LinkedList<>();
-	
-	public static Boolean validaEtapaAnterior(String processoAtual) {
-		
-		boolean response = true;
-		
-		// encontrar etapa na lista
-		Processos processo = listaProcessos.stream().filter(process -> process.getDescricao().equals(processoAtual)).findFirst().get();
-		System.out.println(processo);
-		if(processo==null) return null;
-		
-		
-		int indiceProcessoAtual = listaProcessos.lastIndexOf(processo);
-		
-		if(indiceProcessoAtual==0) {
-			return response;
-		}
-		
-		
-		Processos processoAnterior = listaProcessos.get(indiceProcessoAtual-1);
-		
-		// Conectar no banco de dados e pegar a informação do campo de nomeBanco
-		
-		
-		
-		return response;
-	}
-	
-	
-	
+
 	public static void main(String[] args) {
+
+		ProcessosCheck contrato = new ProcessosCheck();
+		contrato.setDataboletagem(null);
+		contrato.setDataconferenciacrk(null);
+		contrato.setData_desembolso(null);
+		contrato.setDataconfirmacao_desembolso_crk(null);
+		contrato.setDataliquidacao(null);
+		contrato.setFisico(false);
+		contrato.setDataconfirmacao_recebimento_crk(null);
+		contrato.setDatavenda_crk(null);
+		contrato.setDataregistro_b3_manual(null);
+		contrato.setDatacodigos_b3_manual(null);
+		contrato.setDataconferencia_b3_manual(null);
+		contrato.setDataretirar_b3_manual(null);
 		
-		listaProcessos.add(new Processos("Desembolso", "datadesembolso"));
-		listaProcessos.add(new Processos("Boletagem", "databoletagem"));
-		listaProcessos.add(new Processos("Conferir CRK", "data_conferencia_crk"));
-		listaProcessos.add(new Processos("Liquidação", "data_liquidacao"));
-		
-		validaEtapaAnterior("Boletagem");
+
+		boolean aguardandoBoletagem = contrato.getDataboletagem() == null;
+		boolean aguardandoConferirCrk = contrato.getDataconferenciacrk() == null && !aguardandoBoletagem;
+		boolean aguardandoDesembolso = contrato.getData_desembolso() == null && !aguardandoConferirCrk;
+		boolean aguardandoDesembolsoCrk = contrato.getDataconfirmacao_desembolso_crk() == null && !aguardandoDesembolso;
+		boolean aguardandoLiquidacao = contrato.getDataliquidacao() == null && !aguardandoDesembolsoCrk;
+		boolean aguardandoRecebimentoDocumentoFisico = contrato.isFisico() && contrato.getData_documentofisico() == null
+				&& !aguardandoLiquidacao;
+		boolean aguardandoRecebimentoCrk = contrato.isFisico()
+				? contrato.getDataconfirmacao_recebimento_crk() == null && !aguardandoRecebimentoDocumentoFisico
+				: contrato.getDataconfirmacao_recebimento_crk() == null && !aguardandoLiquidacao;
+		boolean aguardandoVendaCrk = contrato.getDatavenda_crk() == null && !aguardandoRecebimentoCrk;
+		boolean aguardandoRegistroB3 = contrato.getDataregistro_b3_manual() == null && !aguardandoVendaCrk;
+		boolean aguardandoCodigosB3 = contrato.getDatacodigos_b3_manual() == null && !aguardandoRegistroB3;
+		boolean aguardandoConferenciaB3 = contrato.getDataconferencia_b3_manual() == null && !aguardandoCodigosB3;
+		boolean aguardandoRetirarB3 = contrato.getDataretirar_b3_manual() == null && !aguardandoConferenciaB3;
+
+		if (aguardandoBoletagem) {
+			System.out.println("AGUARDANDO BOLETAGEM");
+		} else if (aguardandoConferirCrk) {
+			System.out.println("AGUARDANDO CONFERIR CRK");
+		} else if (aguardandoDesembolso) {
+			System.out.println("AGUARDANDO DESEMBOLSO");
+		} else if (aguardandoDesembolsoCrk) {
+			System.out.println("AGUARDANDO DESEMBOLSO CRK");
+		} else if (aguardandoLiquidacao) {
+			System.out.println("AGUARDANDO LIQUIDAÇÃO");
+		} else if (aguardandoRecebimentoDocumentoFisico) {
+			System.out.println("AGUARDANDO RECEBIMENTO DE DOCUMENTO FÍSICO");
+		} else if (aguardandoRecebimentoCrk) {
+			System.out.println("AGUARDANDO RECEBIMENTO CRK");
+		} else if (aguardandoVendaCrk) {
+			System.out.println("AGUARDANDO VENDA CRK");
+		} else if (aguardandoRegistroB3) {
+			System.out.println("AGUARDANDO REGISTRO B3");
+		} else if (aguardandoCodigosB3) {
+			System.out.println("AGUARDANDO INFORMAR CÓDIGOS B3");
+		} else if (aguardandoConferenciaB3) {
+			System.out.println("AGUARDANDO CONFERÊNCIA B3");
+		} else if (aguardandoRetirarB3) {
+			System.out.println("AGUARDANDO RETIRAR DA B3");
+		} else {
+			System.out.println("FINALIZADO");
+		}
+
 	}
 }
