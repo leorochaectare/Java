@@ -16,4 +16,11 @@ public class Correntista {
 	public String getNome() {
 		return nome;
 	}
+
+	@Override
+	public String toString() {
+		return "Correntista [cpf=" + cpf + ", nome=" + nome + "]";
+	}
+	
+	
 }
