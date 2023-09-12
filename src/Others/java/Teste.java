@@ -1,10 +1,11 @@
 package Others.java;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 import Others.java.objetos.NewAccountParams;
+
+
 
 public class Teste {
 
@@ -50,67 +51,64 @@ public class Teste {
 
 	public static void main(String[] args) {
 		
-		String state = "RSA";
+		String zipCode = "37950-000";
 		
-		System.out.println(state.toUpperCase());
+		System.out.println(zipCode.replaceAll("[^0-9]", ""));
 		
-		switch(state.toUpperCase()) {
-		case "RS":
-			System.out.println("RETORNOU RS");
-			break;
-		default:	
-			System.out.println("Deu ruim");
-			break;
-		}
+		
+		String erros = "";
+		NewAccountParams newAccountParams = new NewAccountParams();
 
-//		String erros = "";
-//		NewAccountParams newAccountParams = new NewAccountParams();
-//
-//		newAccountParams.setNome("Teste");
-//		newAccountParams.setTelefone(null);
-//		newAccountParams.setCpf(null);
-//		newAccountParams.setCnpj(null);
-//		newAccountParams.setEmail(null);
-//		newAccountParams.setDatanascimento(null);
-//		newAccountParams.setUrlDocumentoFrente(null);
-//		newAccountParams.setUrlDocumentoVerso(null);
-//		newAccountParams.setUrlCnhFrente(null);
-//		newAccountParams.setUrlCnhVerso(null);
-//		newAccountParams.setUrlIdentidadeFrente(null);
-//		newAccountParams.setUrlIdentidadeVerso(null);
-//		newAccountParams.setUrlComprovanteResidencia(null);
-//		newAccountParams.setNomemae(null);
-//		newAccountParams.setAddressLine(null);
-//		newAccountParams.setAddressLine2(null);
-//		newAccountParams.setZipCode(null);
-//		newAccountParams.setNeighborhood(null);
-//		newAccountParams.setCityName(null);
-//		newAccountParams.setState("AC");
-//
-//		newAccountParams.setAddressType(null);
-//		newAccountParams.setComplement(null);
-//		newAccountParams.setReference(null);
-//		newAccountParams.setDataconstituicao(null);
-//		newAccountParams.setResponsavelNome(null);
-//		newAccountParams.setResponsavelCpf(null);
-//		newAccountParams.setResponsavelEmail(null);
-//		newAccountParams.setResponsavelDatanascimento(null);
-//		newAccountParams.setResponsavelurlDocumentoFrente(null);
-//		newAccountParams.setResponsavelurlDocumentoVerso(null);
-//		newAccountParams.setResponsavelNomemae(null);
-//		newAccountParams.setUrlCartaoCnpj(null);
-//		newAccountParams.setUrlContratoSocial(null);
-//		newAccountParams.setUrlFaturamentoAnual(null);
-//		newAccountParams.setEscrow(null);
-//		newAccountParams.setNacionalidade(null);
-//		newAccountParams.setRendimentoMensal(null);
-//		newAccountParams.setTipoEmpresa(null);
-//		newAccountParams.setUfNascimento(null);
-//		newAccountParams.setAgencia(null);
-//
-//		System.out.println(newAccountParams.getState());
+		newAccountParams.setNome("Teste");
+		newAccountParams.setTelefone(null);
+		newAccountParams.setCpf(null);
+		newAccountParams.setCnpj(null);
+		newAccountParams.setEmail(null);
+		newAccountParams.setDatanascimento(null);
+		newAccountParams.setUrlDocumentoFrente(null);
+		newAccountParams.setUrlDocumentoVerso(null);
+		newAccountParams.setUrlCnhFrente(null);
+		newAccountParams.setUrlCnhVerso(null);
+		newAccountParams.setUrlIdentidadeFrente(null);
+		newAccountParams.setUrlIdentidadeVerso(null);
+		newAccountParams.setUrlComprovanteResidencia(null);
+		newAccountParams.setNomemae(null);
+		newAccountParams.setAddressLine(null);
+		newAccountParams.setAddressLine2(null);
+		newAccountParams.setZipCode("37950-000");
+		newAccountParams.setNeighborhood(null);
+		newAccountParams.setCityName(null);
+		newAccountParams.setState("AC");
+
+		newAccountParams.setAddressType(null);
+		newAccountParams.setComplement(null);
+		newAccountParams.setReference(null);
+		newAccountParams.setDataconstituicao(null);
+		newAccountParams.setResponsavelNome(null);
+		newAccountParams.setResponsavelCpf(null);
+		newAccountParams.setResponsavelEmail(null);
+		newAccountParams.setResponsavelDatanascimento(null);
+		newAccountParams.setResponsavelurlDocumentoFrente(null);
+		newAccountParams.setResponsavelurlDocumentoVerso(null);
+		newAccountParams.setResponsavelNomemae(null);
+		newAccountParams.setUrlCartaoCnpj(null);
+		newAccountParams.setUrlContratoSocial(null);
+		newAccountParams.setUrlFaturamentoAnual(null);
+		newAccountParams.setEscrow(null);
+		newAccountParams.setNacionalidade(null);
+		newAccountParams.setRendimentoMensal(null);
+		newAccountParams.setTipoEmpresa(null);
+		newAccountParams.setUfNascimento(null);
+		newAccountParams.setAgencia(null);
+
+		System.out.println(newAccountParams.getZipCode().replaceAll("[^0-9]", ""));
 		
-		System.out.println(retornaEstado("ACB"));
+		System.out.println(retornaEstado("AC"));
+		
+		System.out.println("982000-000".replaceAll("[^0-9]", ""));
+		
+		
+		
 
 	}
 }
