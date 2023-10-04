@@ -107,12 +107,12 @@ public class Registro {
 	}
 	
 	public BigDecimal calculaValorTotal(PeriodoEstacionamento periodoEstacionamento) {
-		Long duracaoAtual = periodoEstacionamento == PeriodoEstacionamento.FIXO ? getDuracaoDesejada() : calculaQtdeHoras();
-		return getTarifaAplicada().multiply(new BigDecimal(duracaoAtual == 0 ? 1 : duracaoAtual));
+		Long duracaoAtual = periodoEstacionamento == PeriodoEstacionamento.FIXO ? this.duracaoDesejada : calculaQtdeHoras();
+		return getTarifaAplicada().multiply(new BigDecimal(duracaoAtual));
 	}
 	
 	public Long calculaQtdeHoras() {
-		LocalDateTime duracaoAtual = fimRegistro == null ? LocalDateTime.now() : fimRegistro;
+		LocalDateTime duracaoAtual = this.fimRegistro == null ? LocalDateTime.now() : this.fimRegistro;
 		return Duration.between(inicioRegistro, duracaoAtual).toHours();
 	}
 

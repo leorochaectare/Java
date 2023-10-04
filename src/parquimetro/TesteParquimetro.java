@@ -17,7 +17,6 @@ import parquimetro.repository.RegistroRepository;
 
 public class TesteParquimetro {
 	
-	
 	private final CondutorRepository condutorRepository;
 	
 	public TesteParquimetro(CondutorRepository condutorRepository) {
@@ -74,15 +73,11 @@ public class TesteParquimetro {
 		
 		RegistroRepository.save(registro);
 		System.out.println(RegistroRepository.findAll());
+		System.out.println("VALOR TOTAL: " + registro.getValorTotal());
 		
 		
 		
-		
-		
-		
-		
-		
-		
+	
 	}
 
 }
