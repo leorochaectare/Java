@@ -59,15 +59,16 @@ public class TesteParquimetro {
 		
 		Registro registro = new Registro();
 		registro.setRegistroId(1L);
-		registro.setPeriodoEstacionamento(PeriodoEstacionamento.FIXO);
-		registro.setDuracaoDesejada(2);
+		registro.setPeriodoEstacionamento(PeriodoEstacionamento.POR_HORA);
+		registro.setDuracaoDesejada(2L);
 		registro.setFormaPagamento(FormaPagamento.PIX);
 		registro.setVeiculo(veiculo);
 		registro.setCondutor(condutor);
 		registro.setTarifaAplicada(new BigDecimal("2.00"));
 		
-		registro.setValorTotal(registro.calculaValorTotal());
 		registro.setInicioRegistro(LocalDateTime.now());
+		registro.setValorTotal(registro.calculaValorTotal(registro.getPeriodoEstacionamento()));
+		registro.setFimRegistro(null);
 				
 		System.out.println(registro);
 		

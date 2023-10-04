@@ -1,9 +1,18 @@
 package Others.java;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 
-
+import Others.java.objetos.Documents;
+import Others.java.objetos.ResendDocuments;
+import Others.java.objetos.Response;
+import Others.java.objetos.TipoDocumento;
 
 public class Teste {
+	
+	public static String tirarNulos(String valor) {
+		return "";
+	}
 
 
 	
@@ -51,13 +60,23 @@ public class Teste {
 //			    .map(Documents::getDocumentFile) 
 //			    .findFirst();
 		
-		String documentoCnhFrente = tiraNulos(resendDocuments.getListaDocumentos().stream()
-			    .filter(documento -> TipoDocumento.CNH_FRENTE.equals(documento.getTipoDocumento()))
-			    .map(Documents::getDocumentFile) 
-			    .findFirst().orElse(null));
-				
+//		String documentoCnhFrente = tirarNulos(resendDocuments.getListaDocumentos().stream()
+//			    .filter(documento -> TipoDocumento.CNH_FRENTE.equals(documento.getTipoDocumento()))
+//			    .map(Documents::getDocumentFile) 
+//			    .findFirst().orElse(null));
+		
+//		LocalDateTime entrada = LocalDateTime.of(2023, 10, 03, 7, 0);
+//		LocalDateTime saida = LocalDateTime.of(2023, 10, 03, 10, 0);
+//		Duration diferencaEntradaSaida = Duration.between(entrada, saida);
+//		
+//		System.out.println(diferencaEntradaSaida.toHours());
 
-		System.out.println(documentoCnhFrente);
+		System.out.println(Duration.between(LocalDateTime.now(), LocalDateTime.now()).toHours());
+		
+		LocalDateTime dataTeste = null;
+		
+		System.out.println(dataTeste == null);
+		
 		
 		
 //		Double valorfinal = 0.0;

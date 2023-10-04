@@ -1,6 +1,7 @@
 package parquimetro.domain;
 
 import java.math.BigDecimal;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -8,22 +9,20 @@ public class Registro {
 	
 	private Long registroId;
 	private PeriodoEstacionamento periodoEstacionamento;
-	private int duracaoDesejada;
+	private Long duracaoDesejada;
 	private FormaPagamento formaPagamento;
 	private Veiculo veiculo;
 	private Condutor condutor;
 	private BigDecimal tarifaAplicada;
 	private BigDecimal valorTotal;
 	private LocalDateTime inicioRegistro;
+	private LocalDateTime fimRegistro = null;
 	
 	public Registro() {
 		
 	}
 	
-	public BigDecimal calculaValorTotal() {
-		BigDecimal valorTotal = getTarifaAplicada().multiply(new BigDecimal(getDuracaoDesejada()));
-		return valorTotal;
-	}
+	
 	
 	public Long getRegistroId() {
 		return registroId;
@@ -41,11 +40,11 @@ public class Registro {
 		this.periodoEstacionamento = periodoEstacionamento;
 	}
 
-	public int getDuracaoDesejada() {
+	public Long getDuracaoDesejada() {
 		return duracaoDesejada;
 	}
 
-	public void setDuracaoDesejada(int duracaoDesejada) {
+	public void setDuracaoDesejada(Long duracaoDesejada) {
 		this.duracaoDesejada = duracaoDesejada;
 	}
 
@@ -84,7 +83,7 @@ public class Registro {
 	public BigDecimal getValorTotal() {
 		return valorTotal;
 	}
-
+	
 	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
@@ -96,13 +95,33 @@ public class Registro {
 	public void setInicioRegistro(LocalDateTime inicioRegistro) {
 		this.inicioRegistro = inicioRegistro;
 	}
+	
+	
+
+	public LocalDateTime getFimRegistro() {
+		return fimRegistro;
+	}
+
+	public void setFimRegistro(LocalDateTime fimRegistro) {
+		this.fimRegistro = fimRegistro;
+	}
+	
+	public BigDecimal calculaValorTotal(PeriodoEstacionamento periodoEstacionamento) {
+		Long duracaoAtual = periodoEstacionamento == PeriodoEstacionamento.FIXO ? getDuracaoDesejada() : calculaQtdeHoras();
+		return getTarifaAplicada().multiply(new BigDecimal(duracaoAtual == 0 ? 1 : duracaoAtual));
+	}
+	
+	public Long calculaQtdeHoras() {
+		LocalDateTime duracaoAtual = fimRegistro == null ? LocalDateTime.now() : fimRegistro;
+		return Duration.between(inicioRegistro, duracaoAtual).toHours();
+	}
 
 	@Override
 	public String toString() {
 		return "Registro [registroId=" + registroId + ", periodoEstacionamento=" + periodoEstacionamento
 				+ ", duracaoDesejada=" + duracaoDesejada + ", formaPagamento=" + formaPagamento + ", veiculo=" + veiculo
 				+ ", condutor=" + condutor + ", tarifaAplicada=" + tarifaAplicada + ", valorTotal=" + valorTotal
-				+ ", inicioRegistro=" + inicioRegistro + "]";
+				+ ", inicioRegistro=" + inicioRegistro + ", fimRegistro=" + fimRegistro + "]";
 	}
 
 	@Override
