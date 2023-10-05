@@ -74,9 +74,6 @@ public class TesteParquimetro {
 		RegistroRepository.save(registro);
 		System.out.println(RegistroRepository.findAll());
 		System.out.println("VALOR TOTAL: " + registro.getValorTotal());
-		
-		
-		
 	
 	}
 
