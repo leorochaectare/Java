@@ -4,7 +4,7 @@ package Others.java.objetos;
 public class Documents {
 
 	private String documentFile;
-	private Integer documentFormat;
+	private FormatoDocumento documentFormat;
 	private String documentName;
 	private TipoDocumento tipoDocumento;
 	private String description;
@@ -15,7 +15,7 @@ public class Documents {
 		
 	}
 
-	public Documents(String documentFile, Integer documentFormat, String documentName, TipoDocumento tipoDocumento,
+	public Documents(String documentFile, FormatoDocumento documentFormat, String documentName, TipoDocumento tipoDocumento,
 			String description, String expirationDate, String documentKey) {
 		this.documentFile = documentFile;
 		this.documentFormat = documentFormat;
@@ -34,11 +34,11 @@ public class Documents {
 		this.documentFile = documentFile;
 	}
 
-	public Integer getDocumentFormat() {
+	public FormatoDocumento getDocumentFormat() {
 		return documentFormat;
 	}
 
-	public void setDocumentFormat(Integer documentFormat) {
+	public void setDocumentFormat(FormatoDocumento documentFormat) {
 		this.documentFormat = documentFormat;
 	}
 

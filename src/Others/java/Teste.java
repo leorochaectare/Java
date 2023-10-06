@@ -2,27 +2,89 @@ package Others.java;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 import Others.java.objetos.Documents;
+import Others.java.objetos.FormatoDocumento;
 import Others.java.objetos.ResendDocuments;
-import Others.java.objetos.Response;
 import Others.java.objetos.TipoDocumento;
+
 
 public class Teste {
 	
+	private static Map<Integer, TipoDocumento> files = new HashMap<Integer, TipoDocumento>();
+	
+	public static void retornaArquivosEctare() {
+	    
+		files.put(44, TipoDocumento.IDENTIDADE_FRENTE);
+		files.put(45, TipoDocumento.IDENTIDADE_VERSO);
+		files.put(2, TipoDocumento.COMPROVANTE_RESIDENCIA);
+		files.put(42, TipoDocumento.CNH_FRENTE);
+	    files.put(43, TipoDocumento.CNH_VERSO);
+	    files.put(7, TipoDocumento.COMPROVANTE_RESIDENCIA);
+	    files.put(28, TipoDocumento.CNPJ);
+	    files.put(8, TipoDocumento.CONTRATO_SOCIAL);
+	  }
+
 	public static String tirarNulos(String valor) {
 		return "";
 	}
 
+	public static FormatoDocumento retornaFormatoDoDocumento(String url) {
 
+		if (url.contains(".pdf")) {
+			return FormatoDocumento.PDF;
+		} else if (url.contains(".jpg")) {
+			return FormatoDocumento.JPG;
+		} else if (url.contains(".jpeg")) {
+			return FormatoDocumento.JPEG;
+		} else if (url.contains(".png")) {
+			return FormatoDocumento.PNG;
+		}
+
+		return null;
+
+	}
 	
-	
-	
+	 public static TipoDocumento retornaTipoDeDocumento(int idtipodocumento) {
+
+		    int identidadeFrente = 44;
+		    int identidadeVerso = 45;
+		    int comprovanteResidenciaPF = 2;
+		    int cnhFrente = 42;
+		    int cnhVerso = 43;
+		    int comprovanteResidenciaPJ = 7;
+		    int cnpj = 28;
+		    int contratoSocial = 8;
+		    
+		    retornaArquivosEctare();
+		    
+		    
+		    System.out.println(files.containsKey(1));
+
+		    if (idtipodocumento == identidadeFrente) {
+		      return TipoDocumento.IDENTIDADE_FRENTE;
+		    } else if (idtipodocumento == identidadeVerso) {
+		      return TipoDocumento.IDENTIDADE_VERSO;
+		    } else if (idtipodocumento == comprovanteResidenciaPF || idtipodocumento == comprovanteResidenciaPJ) {
+		      return TipoDocumento.COMPROVANTE_RESIDENCIA;
+		    } else if (idtipodocumento == cnhFrente) {
+		      return TipoDocumento.CNH_FRENTE;
+		    } else if (idtipodocumento == cnhVerso) {
+		      return TipoDocumento.CNH_VERSO;
+		    } else if (idtipodocumento == cnpj) {
+		      return TipoDocumento.CNPJ;
+		    } else if (idtipodocumento == contratoSocial) {
+		      return TipoDocumento.CONTRATO_SOCIAL;
+		    }
+
+		    return null;
+
+		  }
+
 	public static void main(String[] args) {
-		
-		
-		
-		
+
 //		Map<String, Integer> mapa = new HashMap<String, Integer>();
 //		mapa.put("um", 1);
 //		mapa.put("dois", 2);
@@ -37,34 +99,32 @@ public class Teste {
 //            Integer valor = entrada.getValue();
 //            System.out.println("Chave: " + chave + ", Valor: " + valor);
 //        }
-	
-		
-		
-		
+
 		ResendDocuments resendDocuments = new ResendDocuments();
 		resendDocuments.setCpfcnpj("123.123.777-56");
 		Documents cnhFrente = new Documents();
 		cnhFrente.setDocumentFile("teste");
-		cnhFrente.setDocumentFormat(0);
+		cnhFrente.setDocumentFormat(FormatoDocumento.PDF);
 		cnhFrente.setDocumentName("CNH FRENTE");
 		cnhFrente.setTipoDocumento(TipoDocumento.CNH_FRENTE);
 		cnhFrente.setDescription(".png");
 		cnhFrente.setExpirationDate("2023-08-08");
 		cnhFrente.setDocumentKey("");
 		resendDocuments.getListaDocumentos().add(cnhFrente);
-		
-		
 
+		retornaArquivosEctare();
+		System.out.println(files);
+		
 //		Optional<String> documentoCnhFrenteOptional = resendDocuments.getListaDocumentos().stream()
 //			    .filter(documento -> documento.getTipoDocumento().equals(TipoDocumento.CNH_FRENTE))
 //			    .map(Documents::getDocumentFile) 
 //			    .findFirst();
-		
+
 //		String documentoCnhFrente = tirarNulos(resendDocuments.getListaDocumentos().stream()
 //			    .filter(documento -> TipoDocumento.CNH_FRENTE.equals(documento.getTipoDocumento()))
 //			    .map(Documents::getDocumentFile) 
 //			    .findFirst().orElse(null));
-		
+
 //		LocalDateTime entrada = LocalDateTime.of(2023, 10, 03, 7, 0);
 //		LocalDateTime saida = LocalDateTime.of(2023, 10, 03, 10, 0);
 //		Duration diferencaEntradaSaida = Duration.between(entrada, saida);
@@ -72,13 +132,20 @@ public class Teste {
 //		System.out.println(diferencaEntradaSaida.toHours());
 
 		System.out.println(Duration.between(LocalDateTime.now(), LocalDateTime.now()).toHours());
-		
+
 		LocalDateTime dataTeste = null;
-		
+
 		System.out.println(dataTeste == null);
 		
 		
 		
+		String url = "boletagem.png";
+		
+		System.out.println(retornaFormatoDoDocumento(url));
+		
+		retornaTipoDeDocumento(1);
+		
+
 //		Double valorfinal = 0.0;
 //
 //		Double taxa = 1.95;
@@ -121,8 +188,7 @@ public class Teste {
 //			System.out.println("___________________________________________________________");
 //			
 //			System.out.println((valor_final_cprf/70)*100);
-			
-			
+
 //			Double valorFinal = 472573.91364170803;
 //			Double precoProduto = 141.29375344335321501396272222255;
 //			
@@ -165,7 +231,7 @@ public class Teste {
 //	    	  System.out.println("Deu certo");
 //	      }
 //		
-		
+
 //		String erros = "";
 //		Double limiteAncora = 30000000.00;
 //		Double limiteProprio = 30000000.00;
@@ -176,14 +242,13 @@ public class Teste {
 //	    boolean response = erros.length() > 0 ? true : false;
 //		System.out.println(response);
 //		System.out.println(erros);
-		
+
 //		String numeroCprfManual = "";
 //		
 //		System.out.println(LocalDate.now().getYear());
 
-		
 //		retornaEstado("RS");
-		
+
 //		Calendar calendar = Calendar.getInstance();
 //        calendar.setTime(new Date()); // Define a data atual
 //        // Adiciona 20 dias
@@ -193,12 +258,7 @@ public class Teste {
 //		
 //		LocalDate dataAtual = LocalDate.now();
 //		System.out.println(dataAtual.plusDays(20) + "T23:59:59-03:00");
-		
 
 	}
-	
-	
-	
 
 }
-
