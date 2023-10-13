@@ -8,24 +8,18 @@ public class NumeroPerfeito {
 		
 		
 		Scanner scan = new Scanner(System.in);
-		int numero = scan.nextInt();
+		int number = scan.nextInt();
 		
 		int sum = 0;
 		
-		for(int i = 1; i < numero; i++) {
-			if(numero % i == 0) {
-				sum += i;
-			}
+		for(int index = 1; index < number; index++) {
+		    if(number % index == 0) {
+		        sum += index;
+		    }
 		}
 		
 		
-		if(numero == sum) {
-			System.out.println(numero + " eh perfeito");
-		}
-		
-		
-		
-		
+		System.out.println(number == sum ? number + " eh perfeito" : number + " nao eh perfeito");
 	}
 
 }
