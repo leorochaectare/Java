@@ -16,6 +16,9 @@ public class Teste {
 	private static Map<Integer, TipoDocumento> files = new HashMap<Integer, TipoDocumento>();
 	
 	public static void retornaArquivosEctare() {
+		
+		// criar um método na Repository que por padrão traga todos os documentos que estão informados com cadastro true.
+		// Montar hashmap a partir desses dados que vem 
 	    
 		files.put(44, TipoDocumento.IDENTIDADE_FRENTE);
 		files.put(45, TipoDocumento.IDENTIDADE_VERSO);
@@ -49,35 +52,36 @@ public class Teste {
 	
 	 public static TipoDocumento retornaTipoDeDocumento(int idtipodocumento) {
 
-		    int identidadeFrente = 44;
-		    int identidadeVerso = 45;
-		    int comprovanteResidenciaPF = 2;
-		    int cnhFrente = 42;
-		    int cnhVerso = 43;
-		    int comprovanteResidenciaPJ = 7;
-		    int cnpj = 28;
-		    int contratoSocial = 8;
+//		    int identidadeFrente = 44;
+//		    int identidadeVerso = 45;
+//		    int comprovanteResidenciaPF = 2;
+//		    int cnhFrente = 42;
+//		    int cnhVerso = 43;
+//		    int comprovanteResidenciaPJ = 7;
+//		    int cnpj = 28;
+//		    int contratoSocial = 8;
 		    
 		    retornaArquivosEctare();
 		    
 		    
-		    System.out.println(files.containsKey(1));
+//		    System.out.println(files.containsKey(1));
+		    System.out.println(files.get(idtipodocumento));
 
-		    if (idtipodocumento == identidadeFrente) {
-		      return TipoDocumento.IDENTIDADE_FRENTE;
-		    } else if (idtipodocumento == identidadeVerso) {
-		      return TipoDocumento.IDENTIDADE_VERSO;
-		    } else if (idtipodocumento == comprovanteResidenciaPF || idtipodocumento == comprovanteResidenciaPJ) {
-		      return TipoDocumento.COMPROVANTE_RESIDENCIA;
-		    } else if (idtipodocumento == cnhFrente) {
-		      return TipoDocumento.CNH_FRENTE;
-		    } else if (idtipodocumento == cnhVerso) {
-		      return TipoDocumento.CNH_VERSO;
-		    } else if (idtipodocumento == cnpj) {
-		      return TipoDocumento.CNPJ;
-		    } else if (idtipodocumento == contratoSocial) {
-		      return TipoDocumento.CONTRATO_SOCIAL;
-		    }
+//		    if (idtipodocumento == identidadeFrente) {
+//		      return TipoDocumento.IDENTIDADE_FRENTE;
+//		    } else if (idtipodocumento == identidadeVerso) {
+//		      return TipoDocumento.IDENTIDADE_VERSO;
+//		    } else if (idtipodocumento == comprovanteResidenciaPF || idtipodocumento == comprovanteResidenciaPJ) {
+//		      return TipoDocumento.COMPROVANTE_RESIDENCIA;
+//		    } else if (idtipodocumento == cnhFrente) {
+//		      return TipoDocumento.CNH_FRENTE;
+//		    } else if (idtipodocumento == cnhVerso) {
+//		      return TipoDocumento.CNH_VERSO;
+//		    } else if (idtipodocumento == cnpj) {
+//		      return TipoDocumento.CNPJ;
+//		    } else if (idtipodocumento == contratoSocial) {
+//		      return TipoDocumento.CONTRATO_SOCIAL;
+//		    }
 
 		    return null;
 
@@ -114,6 +118,10 @@ public class Teste {
 
 		retornaArquivosEctare();
 		System.out.println(files);
+		
+		System.out.println(files.get(1));
+		
+//		System.out.println(retornaTipoDeDocumento(44));
 		
 //		Optional<String> documentoCnhFrenteOptional = resendDocuments.getListaDocumentos().stream()
 //			    .filter(documento -> documento.getTipoDocumento().equals(TipoDocumento.CNH_FRENTE))
