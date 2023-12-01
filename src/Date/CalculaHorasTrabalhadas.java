@@ -3,48 +3,58 @@ package Date;
 import java.time.Duration;
 import java.time.LocalTime;
 
+import Date.objetos.HorariosTrabalho;
+import Date.objetos.RetornoHorariosTrabalhados;
+
 public class CalculaHorasTrabalhadas {
-	public static void main(String[] args) {
+	
+	final static int minutosHora = 60;
+	
+	public static RetornoHorariosTrabalhados horasTrabalhadas(HorariosTrabalho horariosTrabalho) {
 		
-		final int minutosHora = 60;
+		RetornoHorariosTrabalhados retornoHorariosTrabalhados = new RetornoHorariosTrabalhados();
 		
-		final int horaEntrada = 8;
-		final int minutoEntrada = 30;
-		
-		final int horaInicioAlmoco = 13;
-		final int minutoInicioAlmoco = 00;
-		
-		final int horaFimAlmoco = 13;
-		final int minutoFimAlmoco = 30;
-		
-		final int horaSaida = 17;
-		final int minutoSaida = 48;
-		
-		LocalTime inicioAlmoco = LocalTime.of(horaInicioAlmoco, minutoInicioAlmoco);
-		LocalTime fimAlmoco = LocalTime.of(horaFimAlmoco, minutoFimAlmoco);
-		Duration duracaoInicioAlmocoFimAlmoco = Duration.between(inicioAlmoco, fimAlmoco);
+		Duration duracaoInicioAlmocoFimAlmoco = Duration.between(horariosTrabalho.getInicioAlmoco(), horariosTrabalho.getFimAlmoco());
 		long minutosTotaisPeriodoAlmoco = duracaoInicioAlmocoFimAlmoco.toMinutes();
 		long horasPeriodoAlmoco = minutosTotaisPeriodoAlmoco / minutosHora;
 		long minutosPeriodoAlmoco = minutosTotaisPeriodoAlmoco % minutosHora;
 		
-		System.out.println("HORAS PERIODO ALMOÇO: " + horasPeriodoAlmoco);
-		System.out.println("MINUTOS PERIODO ALMOÇO: " + minutosPeriodoAlmoco);
 		
-		LocalTime entrada = LocalTime.of(horaEntrada, minutoEntrada);
-		LocalTime saida = LocalTime.of(horaSaida, minutoSaida);
-		Duration duracaoEntradaSaida = Duration.between(entrada, saida);
+		Duration duracaoEntradaSaida = Duration.between(horariosTrabalho.getEntrada(), horariosTrabalho.getSaida());
 		long minutosTotais = duracaoEntradaSaida.toMinutes();
 		long horas = minutosTotais / minutosHora;
 		long minutos = minutosTotais % minutosHora;
-		
-		System.out.println("HORAS: " + horas);
-		System.out.println("MINUTOS: " + minutos);
 		
 		long minutosFinais = minutosTotais - minutosTotaisPeriodoAlmoco;
 		long horasTrabalhadas = minutosFinais / minutosHora;
 		long minutosTrabalhados = minutosFinais % minutosHora;		
 		
-		System.out.println("HORAS TRABALHADAS: " + horasTrabalhadas);
-		System.out.println("MINUTOS TRABALHADAS: " + minutosTrabalhados);
+		retornoHorariosTrabalhados.setPeriodoHorarioAlmoco(LocalTime.of((int) horasPeriodoAlmoco,(int) minutosPeriodoAlmoco));
+		retornoHorariosTrabalhados.setPeriodoTotal(LocalTime.of((int) horas,(int) minutos));
+		retornoHorariosTrabalhados.setPeriodoTrabalhado(LocalTime.of((int) horasTrabalhadas,(int) minutosTrabalhados));
+		return retornoHorariosTrabalhados;
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		final int horaEntrada = 8;
+		final int minutoEntrada = 53;
+		
+		final int horaInicioAlmoco = 13;
+		final int minutoInicioAlmoco = 01;
+		
+		final int horaFimAlmoco = 13;
+		final int minutoFimAlmoco = 32;
+		
+		final int horaSaida = 18;
+		final int minutoSaida = 05;
+		
+		LocalTime entrada = LocalTime.of(horaEntrada, minutoEntrada);
+		LocalTime inicioAlmoco = LocalTime.of(horaInicioAlmoco, minutoInicioAlmoco);
+		LocalTime fimAlmoco = LocalTime.of(horaFimAlmoco, minutoFimAlmoco);
+		LocalTime saida = LocalTime.of(horaSaida, minutoSaida);
+		HorariosTrabalho horariosTrabalho = new HorariosTrabalho(entrada, inicioAlmoco, fimAlmoco, saida);
+		System.out.println(horasTrabalhadas(horariosTrabalho));
 	}
 }

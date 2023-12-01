@@ -28,17 +28,62 @@ public class ContaCorrente {
             && this.numero.equals(numero);
     }
     
-    public String getBanco() {
-    	return banco;
+  
+	public String getBanco() {
+		return banco;
+	}
+
+	public void setBanco(String banco) {
+		this.banco = banco;
+	}
+
+	public String getAgencia() {
+		return agencia;
+	}
+
+	public void setAgencia(String agencia) {
+		this.agencia = agencia;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public BigDecimal getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(BigDecimal saldo) {
+		this.saldo = saldo;
+	}
+
+	public Correntista getCorrentista() {
+		return correntista;
+	}
+
+	public void setCorrentista(Correntista correntista) {
+		this.correntista = correntista;
+	}
+	
+	public void deposito(BigDecimal valor) {
+    	this.setSaldo(this.getSaldo().add(valor));
     }
-    
-    public String getAgencia() {
-    	return agencia;
-    }
-    
-    public String getNumero() {
-    	return numero;
-    }
+	
+	public void saque(BigDecimal valor) {
+		
+		var saldo = this.getSaldo().subtract(valor);
+		
+		if(saldo.intValue() < 0) {
+			throw new IllegalArgumentException("Limite insuficiente para realizar essa operação.");
+		} else {
+			this.setSaldo(saldo);
+		}
+		
+	}
 
 	@Override
 	public int hashCode() {

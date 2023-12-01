@@ -1,5 +1,7 @@
 package Others.java.objetos;
 
+import java.util.Objects;
+
 public class TesteObjeto {
 	private int id;
 	private String nome;
@@ -33,6 +35,25 @@ public class TesteObjeto {
 	public String toString() {
 		return "TesteObjeto [id=" + id + ", nome=" + nome + ", producao=" + producao + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TesteObjeto other = (TesteObjeto) obj;
+		return id == other.id;
+	}
+	
+	
 	
 	
 }
