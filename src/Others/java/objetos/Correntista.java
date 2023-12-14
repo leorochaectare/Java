@@ -9,6 +9,10 @@ public class Correntista {
 		this.nome = nome;
 	}
 	
+	public Correntista(){
+		
+	}
+	
 	public String getCpf() {
 		return cpf;
 	}
@@ -19,7 +23,7 @@ public class Correntista {
 
 	@Override
 	public String toString() {
-		return "Correntista [cpf=" + cpf + ", nome=" + nome + "]";
+		return "Correntista [cpf=" + cpf + ", nome=" + nome + "] \n";
 	}
 	
 	
