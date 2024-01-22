@@ -7,7 +7,7 @@ import Others.java.objetos.Correntista;
 
 public class paginacao {
 	
-private static List<Correntista> listaCorrentista = new LinkedList<Correntista>();
+	private static List<Correntista> listaCorrentista = new LinkedList<Correntista>();
 	
 	public static void adicionarCorrentista() {
 		int index = listaCorrentista.size() + 1;
@@ -26,11 +26,7 @@ private static List<Correntista> listaCorrentista = new LinkedList<Correntista>(
 	}
 	
 	public static List<Correntista> retornaListaFiltrada(String filtro) {
-		if(filtro==null) {
-			return listaCorrentista;
-		}
-		
-		return listaCorrentista.stream().filter(item -> item.getNome().contains(filtro)).toList();
+		return filtro == null ? listaCorrentista : listaCorrentista.stream().filter(item -> item.getNome().contains(filtro)).toList();
 	}
 	
 	public static List<Correntista> retornarPaginacao(List<Correntista> lista, int paginaAtual, int itensPorPagina) {
