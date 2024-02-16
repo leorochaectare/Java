@@ -38,14 +38,14 @@ public class CalculaHorasTrabalhadas {
 	
 	
 	public static void main(String[] args) {
-		final int horaEntrada = 8;
-		final int minutoEntrada = 39;
+		final int horaEntrada = 7;
+		final int minutoEntrada = 45;
 		
-		final int horaInicioAlmoco = 13;
-		final int minutoInicioAlmoco = 01;
+		final int horaInicioAlmoco = 12;
+		final int minutoInicioAlmoco = 58;
 		
 		final int horaFimAlmoco = 13;
-		final int minutoFimAlmoco = 28;
+		final int minutoFimAlmoco = 27;
 		
 		final int horaSaida = 17;
 		final int minutoSaida = 00;
