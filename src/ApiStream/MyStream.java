@@ -1,7 +1,10 @@
 package ApiStream;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.Stream;
 import java.util.ArrayList;
 
 class Funcionario {
@@ -54,13 +57,36 @@ class Funcionario {
 		return "Funcionario [id_funcionario=" + id_funcionario + ", nome=" + nome + ", salario=" + salario
 				+ ", departamento=" + departamento + "] \n";
 	}
-	
-	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(departamento);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Funcionario other = (Funcionario) obj;
+		return Objects.equals(departamento, other.departamento);
+	}
 	
 	
 }
 
 public class MyStream {
+	
+	public static void mostrarDepartamento(String departamento) {
+		
+		System.out.println("DEPARTAMENTO: " + departamento);
+		
+	}
+	
+	
 	public static void main(String[] args) {
 		List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 		
@@ -115,10 +141,52 @@ public class MyStream {
 		
 		System.out.println(employeeListSorted);
 		
+		System.out.println("-------------------------------------------------");
+		System.out.println("Retornando lista dos salários de todos os funcionarários");
+		
+		funcionarios.stream()
+				.flatMapToDouble(salary -> DoubleStream.of(salary.getSalario()))
+				.forEach(System.out::println);
+		
+		System.out.println("-------------------------------------------------");
+		System.out.println("Retornando profissões sem repetir nomes");
+		
+//		funcionarios.stream()
+//				.distinct()
+//				.forEach(funcionario -> System.out.println(funcionario.getDepartamento()));
+		
+		funcionarios.stream()
+		.distinct()
+		.forEach(funcionario -> mostrarDepartamento(funcionario.getDepartamento()));
+		
+		System.out.println("-------------------------------------------------");
+		System.out.println("Média de salários total");
+		
+		var average = funcionarios.stream()
+				.mapToDouble(funcionario -> funcionario.getSalario())
+				.average().getAsDouble();
+		
+		System.out.println(average);
+		
+		System.out.println("-------------------------------------------------");
+		System.out.println("Existe algum funcionarário com salário maior ou igual a dez mil reais ?");
+		
+		var exists = funcionarios.stream().anyMatch(funcionario -> funcionario.getSalario() >= 10000);
+		
+		System.out.println(exists);
+		
+		System.out.println("-------------------------------------------------");
+		System.out.println("Todos os funcionários tem um salário maior ou igual ao salário mínimo ?");
+		
+		Double mininumSalary = 1400.00;
+		
+		var existsSalary = funcionarios.stream().allMatch(funcionario -> funcionario.getSalario() >= mininumSalary);
+		
+		System.out.println(existsSalary);
 		
 		
-			
-			
+		
+		
 		
 		
 	}

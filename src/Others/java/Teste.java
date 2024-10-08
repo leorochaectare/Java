@@ -11,19 +11,24 @@ public class Teste {
 	
 	public static void main(String[] args) {
 		
-		int index = 0;
-		int pagina = 1;
-		boolean paginacaoEncerrada = false;
-		LinkedList<Integer> nextValue = new LinkedList<Integer>(Arrays.asList(10,20,30,null));
+		String texto1 = "TEXTO1";
+		String texto2 = "texto2";
 		
-		while(!paginacaoEncerrada) {
-			
-			System.out.println("PAGINA: " + pagina);
-			
-			paginacaoEncerrada = nextValue.get(index) == null;
-			pagina++;
-			index++;
-		}
+		System.out.println(texto1.compareToIgnoreCase(texto2));
+		
+//		int index = 0;
+//		int pagina = 1;
+//		boolean paginacaoEncerrada = false;
+//		LinkedList<Integer> nextValue = new LinkedList<Integer>(Arrays.asList(10,20,30,null));
+//		
+//		while(!paginacaoEncerrada) {
+//			
+//			System.out.println("PAGINA: " + pagina);
+//			
+//			paginacaoEncerrada = nextValue.get(index) == null;
+//			pagina++;
+//			index++;
+//		}
 		
 		
 		
