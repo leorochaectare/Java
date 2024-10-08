@@ -89,6 +89,16 @@ public class MyStream {
 			.sum();
 		System.out.println(sumSalary);	
 		
+		System.out.println("-------------------------------------------------");
+		System.out.println("Quantidade de funcionários com salário acima ou igual a 5000");
+		
+		var quantity = funcionarios.stream()
+				.filter(func -> func.getSalario() >= 5000.00)
+				.count();
+		System.out.println(quantity);
+		
+		
+		
 			
 			
 		

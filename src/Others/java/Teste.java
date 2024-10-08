@@ -11,6 +11,25 @@ public class Teste {
 	
 	public static void main(String[] args) {
 		
+		int index = 0;
+		int pagina = 1;
+		boolean paginacaoEncerrada = false;
+		LinkedList<Integer> nextValue = new LinkedList<Integer>(Arrays.asList(10,20,30,null));
+		
+		while(!paginacaoEncerrada) {
+			
+			System.out.println("PAGINA: " + pagina);
+			
+			paginacaoEncerrada = nextValue.get(index) == null;
+			pagina++;
+			index++;
+		}
+		
+		
+		
+		
+		
+		
 		
 //		final String referencia = "0943-3";
 //		
@@ -22,9 +41,9 @@ public class Teste {
 //		
 //		System.out.println(brinquedo.getNome().toUpperCase().contains("FUN DIVIRTA-SE"));
 		
-		final String dataAtual = LocalDate.now().toString();
-		
-		System.out.println(dataAtual);
+//		final String dataAtual = LocalDate.now().toString();
+//		
+//		System.out.println(dataAtual);
 		
 
 		
