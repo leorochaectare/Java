@@ -1,6 +1,7 @@
 package ApiStream;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.ArrayList;
 
 class Funcionario {
@@ -47,6 +48,14 @@ class Funcionario {
 	public void setDepartamento(String departamento) {
 		this.departamento = departamento;
 	}
+
+	@Override
+	public String toString() {
+		return "Funcionario [id_funcionario=" + id_funcionario + ", nome=" + nome + ", salario=" + salario
+				+ ", departamento=" + departamento + "] \n";
+	}
+	
+	
 	
 	
 }
@@ -96,6 +105,15 @@ public class MyStream {
 				.filter(func -> func.getSalario() >= 5000.00)
 				.count();
 		System.out.println(quantity);
+		
+		System.out.println("-------------------------------------------------");
+		System.out.println("Retornando lista de funcionários em ordem alfabética");
+		
+		var employeeListSorted = funcionarios.stream()
+				.sorted((item1, item2) -> item1.getNome().compareTo(item2.getNome()))
+				.collect(Collectors.toList());
+		
+		System.out.println(employeeListSorted);
 		
 		
 		
