@@ -36,19 +36,18 @@ public class CalculaHorasTrabalhadas {
 	}
 	
 	
-	
 	public static void main(String[] args) {
-		final int horaEntrada = 7;
-		final int minutoEntrada = 45;
+		final int horaEntrada = 9;
+		final int minutoEntrada = 30;
 		
-		final int horaInicioAlmoco = 12;
-		final int minutoInicioAlmoco = 58;
+		final int horaInicioAlmoco = 13;
+		final int minutoInicioAlmoco = 00;
 		
 		final int horaFimAlmoco = 13;
-		final int minutoFimAlmoco = 27;
+		final int minutoFimAlmoco = 35;
 		
 		final int horaSaida = 17;
-		final int minutoSaida = 00;
+		final int minutoSaida = 30;
 		
 		LocalTime entrada = LocalTime.of(horaEntrada, minutoEntrada);
 		LocalTime inicioAlmoco = LocalTime.of(horaInicioAlmoco, minutoInicioAlmoco);

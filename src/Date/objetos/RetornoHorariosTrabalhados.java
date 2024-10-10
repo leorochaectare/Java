@@ -7,7 +7,7 @@ public class RetornoHorariosTrabalhados {
 	private LocalTime periodoHorarioAlmoco;
 	private LocalTime periodoTotal;
 	private LocalTime periodoTrabalhado;
-	private LocalTime cargaHoraria = LocalTime.of(8, 48);
+	private LocalTime cargaHoraria = LocalTime.of(8, 00);
 	
 	public RetornoHorariosTrabalhados() {
 		

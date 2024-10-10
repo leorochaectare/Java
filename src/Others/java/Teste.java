@@ -3,18 +3,59 @@ package Others.java;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Map;
 
 import Others.java.objetos.DadosContaTeste;
 import Others.java.objetos.Produto;
 
 public class Teste {
 	
+//	public static String removerPontuacao(String documento) {
+//		// Remove caracteres não numéricos
+//		String numeros = "";
+//
+//		if(documento != null) {
+//			numeros = documento.replaceAll("[^0-9]", "");
+//		}
+//		
+//		return numeros;
+//	}
+	
 	public static void main(String[] args) {
 		
-		String texto1 = "TEXTO1";
-		String texto2 = "texto2";
+		Map<String, String> operacoes = Map.of("ATACADO", "A", "VAREJO", "V","REPRESENTANTE","R");
 		
-		System.out.println(texto1.compareToIgnoreCase(texto2));
+		System.out.println(operacoes.get("TESTE"));
+		
+//		String codigoCliente = "99.243553";
+//		
+//		Integer codigoClienteInt = Integer.parseInt(removerPontuacao(codigoCliente));
+//		
+//		System.out.println(codigoClienteInt);
+		
+//		String data = "2024-10-10T08:46:30.714283";
+//		
+//		System.out.println(data.substring(0, 10));
+		
+//		Double valorProduto = 100.00;
+//		Integer porcentagem = 10;
+//		
+//		System.out.println((porcentagem * valorProduto) / 100);
+		
+//		int florattaJoias = 666; 
+//		
+//		LinkedList<Integer> empresas = new LinkedList<Integer>();
+//		empresas.add(66);
+//		
+//		
+//		boolean contemEmpresaFloratta = empresas.stream().anyMatch(empresa -> empresa == florattaJoias);
+//		
+//		System.out.println("CONTEM FLORATTA: " + contemEmpresaFloratta);
+		
+//		String texto1 = "TEXTO1";
+//		String texto2 = "texto2";
+//		
+//		System.out.println(texto1.compareToIgnoreCase(texto2));
 		
 //		int index = 0;
 //		int pagina = 1;
