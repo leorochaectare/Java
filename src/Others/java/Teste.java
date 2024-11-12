@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.concurrent.Future;
 
 import Others.java.objetos.DadosContaTeste;
 import Others.java.objetos.Produto;
@@ -23,9 +24,9 @@ public class Teste {
 	
 	public static void main(String[] args) {
 		
-		Map<String, String> operacoes = Map.of("ATACADO", "A", "VAREJO", "V","REPRESENTANTE","R");
-		
-		System.out.println(operacoes.get("TESTE"));
+//		Map<String, String> operacoes = Map.of("ATACADO", "A", "VAREJO", "V","REPRESENTANTE","R");
+//		
+//		System.out.println(operacoes.get("TESTE"));
 		
 //		String codigoCliente = "99.243553";
 //		
